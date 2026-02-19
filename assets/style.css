@@ -785,21 +785,7 @@ ol {
   box-shadow: var(--shadow);
 }
 
-.project-hero-media {
-  margin: 1rem 0 0;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  border: 1px solid var(--border);
-  background: var(--surface-soft);
-}
-
-.project-hero-media img {
-  width: 100%;
-  height: auto;
-  display: block;
-  max-height: 320px;
-  object-fit: contain;
-}
+/* Suppression des mockups dans l’encart rôle : pas d’image ici */
 
 .breadcrumbs {
   color: var(--muted);
@@ -986,17 +972,16 @@ ol {
   background: var(--surface);
   box-shadow: var(--shadow-soft);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  aspect-ratio: 9 / 16;
   display: flex;
   flex-direction: column;
 }
 
 .screen-item img {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: block;
-  object-fit: contain;
-  background: var(--surface-soft);
+  object-fit: cover;
+  background: var(--surface);
 }
 
 .screen-item:hover {
@@ -1015,6 +1000,54 @@ ol {
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--primary-strong);
+}
+
+/* Mise en page stylisée des écrans (tailles variables + coins arrondis) */
+.screens-styled {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-auto-flow: dense;
+  gap: 1.4rem;
+}
+
+.screens-styled .screen-item {
+  border-radius: 18px;
+  box-shadow: 0 18px 35px rgba(43, 47, 54, 0.12);
+}
+
+/* Deux tailles uniquement : grande (xl) et moyenne (md) */
+.screen-item--md { grid-column: span 3; grid-row: span 1; }
+.screen-item--xl { grid-column: span 4; grid-row: span 2; }
+
+/* Décalages doux pour un effet “magazine” */
+.screens-styled .screen-item:nth-child(1) { transform: translateY(-6px); }
+.screens-styled .screen-item:nth-child(2) { transform: translateY(8px); }
+.screens-styled .screen-item:nth-child(3) { transform: translateY(-10px); }
+.screens-styled .screen-item:nth-child(4) { transform: translateY(6px); }
+.screens-styled .screen-item:nth-child(5) { transform: translateY(-4px); }
+.screens-styled .screen-item:nth-child(6) { transform: translateY(10px); }
+
+@media (max-width: 1024px) {
+  .screens-styled {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .screen-item--xl { grid-column: span 4; }
+  .screen-item--lg { grid-column: span 3; }
+  .screen-item--md { grid-column: span 2; }
+}
+
+@media (max-width: 760px) {
+  .screens-styled {
+    grid-template-columns: 1fr;
+  }
+  .screen-item--xl,
+  .screen-item--lg,
+  .screen-item--md {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .screens-styled .screen-item {
+    transform: none;
+  }
 }
 
 .pill-list {
