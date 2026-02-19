@@ -642,7 +642,7 @@ ol {
 
 .section {
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 
