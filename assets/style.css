@@ -840,18 +840,18 @@ ol {
 
 .gallery-item {
   margin: 0;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: var(--shadow-soft);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: transparent;
+  transition: transform 0.25s ease;
 }
 
 .gallery-thumb {
   position: relative;
-  height: 180px;
-  background: linear-gradient(135deg, rgba(68, 84, 106, 0.15), rgba(192, 122, 92, 0.2));
+  height: 200px;
+  background: linear-gradient(135deg, rgba(68, 84, 106, 0.12), rgba(192, 122, 92, 0.18));
+  border-radius: 18px;
+  box-shadow: 0 22px 40px rgba(43, 47, 54, 0.16);
   overflow: hidden;
 }
 
@@ -859,15 +859,16 @@ ol {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(43, 47, 54, 0.2), transparent 60%);
+  background: linear-gradient(0deg, rgba(43, 47, 54, 0.18), transparent 60%);
   opacity: 0;
   transition: opacity 0.25s ease;
 }
 
 .gallery-item figcaption {
-  padding: 0.75rem 0.9rem;
+  padding: 0.6rem 0.2rem 0.2rem;
   color: var(--primary-strong);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
+  text-align: center;
 }
 
 .gallery-tag {
@@ -881,7 +882,6 @@ ol {
 
 .gallery-item:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow);
 }
 
 .gallery-item:hover .gallery-thumb::after {
@@ -966,40 +966,25 @@ ol {
 
 .screen-item {
   margin: 0;
-  border-radius: var(--radius-md);
+  border-radius: 20px;
   overflow: hidden;
-  border: 1px solid var(--border);
-  background: var(--surface);
-  box-shadow: var(--shadow-soft);
+  background: transparent;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
-  display: flex;
-  flex-direction: column;
 }
 
 .screen-item img {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
-  background: var(--surface);
+  object-fit: contain;
+  border-radius: 20px;
+  box-shadow: 0 24px 45px rgba(43, 47, 54, 0.18);
+  background: #ffffff;
 }
 
-.screen-item:hover {
+.screen-item:hover img {
   transform: translateY(-4px);
-  box-shadow: var(--shadow);
-}
-
-.screen-item figcaption {
-  padding: 0.5rem 0.7rem;
-  background: var(--surface);
-  border-top: 1px solid var(--border);
-}
-
-.screen-caption {
-  display: inline-block;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--primary-strong);
+  box-shadow: 0 28px 55px rgba(43, 47, 54, 0.22);
 }
 
 /* Mise en page stylisée des écrans (tailles variables + coins arrondis) */
@@ -1010,8 +995,8 @@ ol {
 }
 
 .screens-styled .screen-item {
-  border-radius: 18px;
-  box-shadow: 0 18px 35px rgba(43, 47, 54, 0.12);
+  border-radius: 20px;
+  box-shadow: none;
 }
 
 /* Deux tailles uniquement : grande (xl) et moyenne (md) */
