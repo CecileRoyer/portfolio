@@ -639,6 +639,34 @@ ol {
   gap: 2.5rem;
 }
 
+.about-aside {
+  display: grid;
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.about-portrait {
+  width: min(180px, 40vw);
+  aspect-ratio: 4 / 5;
+  border-radius: 50% 50% 45% 55% / 60% 40% 60% 40%;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  background: var(--surface);
+}
+
+.about-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  transition: transform 0.35s ease;
+}
+
+.about-portrait:hover img {
+  transform: scale(1.04);
+}
+
 .facts {
   display: grid;
   gap: 1.2rem;
