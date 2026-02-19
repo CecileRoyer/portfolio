@@ -32,6 +32,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -41,6 +42,7 @@ body {
   background: var(--bg);
   line-height: 1.6;
   min-height: 100%;
+  overflow-x: hidden;
 }
 
 img {
@@ -155,6 +157,39 @@ ol {
   background: rgba(240, 234, 220, 0.92);
   border-bottom: 1px solid var(--border);
   backdrop-filter: blur(8px);
+}
+
+/* Bouton retour en haut */
+.back-to-top {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-soft);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.25s ease;
+  z-index: 30;
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+  background: var(--primary-strong);
+  transform: translateY(0);
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .site-header::after {
@@ -670,6 +705,7 @@ ol {
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
   background: var(--surface);
+  justify-self: end;
 }
 
 .about-portrait img {
@@ -689,6 +725,7 @@ ol {
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 1.2rem;
   width: 100%;
+  margin-top: 1.5rem;
 }
 
 .fact-card {
@@ -976,21 +1013,10 @@ ol {
   max-width: 560px;
 }
 
-.prototype-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  padding: 1.6rem;
-  box-shadow: var(--shadow-soft);
-  display: grid;
-  gap: 0.8rem;
-  justify-items: start;
-}
-
-.prototype-card .muted {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.95rem;
+.design-ui-cta {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .learning-grid {
@@ -1409,9 +1435,9 @@ ol {
     justify-items: center;
   }
 
-  .prototype-card {
+  .design-ui-cta {
     width: 100%;
-    justify-items: center;
+    justify-content: center;
   }
 
   .about-row {

@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/style.css" />
 </head>
-<body>
+<body id="top">
   <!-- Lien d'évitement pour l'accessibilité clavier -->
   <a class="skip-link" href="#contenu">Aller au contenu</a>
 
@@ -132,24 +132,36 @@
       </div>
     </section>
 
-    <!-- Résultats & apprentissages + Design UI -->
+    <!-- Design UI + apprentissages -->
     <section class="section reveal">
-      <div class="container detail-grid reveal stagger cook-detail">
-        <div>
-          <h2>Résultats & apprentissages</h2>
-          <p>Ce projet m’a permis de renforcer ma méthodologie UX, de justifier mes choix de design et de concevoir des
-            parcours cohérents, centrés sur les besoins réels des utilisateurs.</p>
-          <h2>Ce que j’ai appris</h2>
-          <p>Ce projet m’a appris à simplifier sans appauvrir, et à justifier chaque choix de structure. J’ai aussi mieux
-            compris l’importance de la priorisation quand l’utilisateur cherche une réponse rapide.</p>
-          <h2>Et ensuite ?</h2>
-          <p>Je proposerais des tests utilisateurs courts pour valider la compréhension des parcours. À partir des
-            retours, j’itérerais sur la recherche et les filtres, puis sur la clarté des étapes.</p>
+      <div class="container">
+        <h2>Design UI</h2>
+        <div class="design-ui-row reveal stagger">
+          <div class="design-ui-text">
+            <p>Conception d’une interface claire et structurée, avec une hiérarchie visuelle pensée pour faciliter la
+              recherche et l’organisation des recettes.</p>
+          </div>
+          <div class="design-ui-cta">
+            <a class="btn primary prototype-cta" href="#cook-screens-title">Voir les écrans clés</a>
+          </div>
         </div>
-        <div class="design-ui-block">
-          <h2>Design UI</h2>
-          <p>Conception d’une interface claire et structurée, avec une hiérarchie visuelle pensée pour faciliter la
-            recherche et l’organisation des recettes.</p>
+        <h2>Résultats & apprentissages</h2>
+        <div class="facts reveal stagger learning-grid">
+          <div class="fact-card">
+            <h3>Résultats</h3>
+            <p>Ce projet m’a permis de renforcer ma méthodologie UX, de justifier mes choix de design et de concevoir des
+              parcours cohérents, centrés sur les besoins réels des utilisateurs.</p>
+          </div>
+          <div class="fact-card">
+            <h3>Ce que j’ai appris</h3>
+            <p>Ce projet m’a appris à simplifier sans appauvrir, et à justifier chaque choix de structure. J’ai aussi mieux
+              compris l’importance de la priorisation quand l’utilisateur cherche une réponse rapide.</p>
+          </div>
+          <div class="fact-card">
+            <h3>Et ensuite ?</h3>
+            <p>Je proposerais des tests utilisateurs courts pour valider la compréhension des parcours. À partir des
+              retours, j’itérerais sur la recherche et les filtres, puis sur la clarté des étapes.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -193,6 +205,7 @@
       </div>
     </div>
   </footer>
+  <a class="back-to-top" href="#top" aria-label="Revenir en haut de la page">↑</a>
   <script src="assets/script.js"></script>
 </body>
 </html>

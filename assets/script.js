@@ -137,3 +137,14 @@ if (navLinks.length && !prefersReducedMotion && "IntersectionObserver" in window
 
   sections.forEach((section) => spy.observe(section));
 }
+
+// Bouton retour en haut (affiché après un léger scroll)
+const backToTop = document.querySelector(".back-to-top");
+if (backToTop) {
+  const toggleBackToTop = () => {
+    const show = window.scrollY > 220;
+    backToTop.classList.toggle("is-visible", show);
+  };
+  window.addEventListener("scroll", toggleBackToTop, { passive: true });
+  toggleBackToTop();
+}
