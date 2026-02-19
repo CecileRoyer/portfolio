@@ -785,6 +785,22 @@ ol {
   box-shadow: var(--shadow);
 }
 
+.project-hero-media {
+  margin: 1rem 0 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface-soft);
+}
+
+.project-hero-media img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 320px;
+  object-fit: contain;
+}
+
 .breadcrumbs {
   color: var(--muted);
   font-size: 0.9rem;
@@ -829,9 +845,10 @@ ol {
 /* =============================
    Galerie visuelle (autres projets)
 ============================= */
+/* Galerie secondaire : claire, respirante, visuellement discrète */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.2rem;
 }
 
@@ -862,10 +879,18 @@ ol {
 }
 
 .gallery-item figcaption {
-  padding: 0.9rem 1rem;
-  font-weight: 600;
+  padding: 0.75rem 0.9rem;
   color: var(--primary-strong);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
+}
+
+.gallery-tag {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  font-weight: 600;
 }
 
 .gallery-item:hover {
@@ -946,41 +971,50 @@ ol {
   padding: 1.4rem;
 }
 
-.mockups {
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+/* Grille d’écrans clés (images) */
+.screens-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
 }
 
-.mockup {
-  height: 220px;
+.screen-item {
+  margin: 0;
   border-radius: var(--radius-md);
-  border: 1px dashed var(--border);
-  background: linear-gradient(135deg, rgba(68, 84, 106, 0.1), rgba(192, 122, 92, 0.1));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-weight: 600;
-  color: var(--muted);
-  position: relative;
   overflow: hidden;
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  aspect-ratio: 9 / 16;
+  display: flex;
+  flex-direction: column;
 }
 
-.mockup::after {
-  content: "";
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.55), transparent 70%);
-  top: -40px;
-  right: -40px;
-  opacity: 0.6;
+.screen-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  background: var(--surface-soft);
 }
 
-.mockup:hover {
+.screen-item:hover {
   transform: translateY(-4px);
-  border-color: rgba(68, 84, 106, 0.35);
+  box-shadow: var(--shadow);
+}
+
+.screen-item figcaption {
+  padding: 0.5rem 0.7rem;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+}
+
+.screen-caption {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary-strong);
 }
 
 .pill-list {
@@ -1199,6 +1233,12 @@ ol {
   }
 }
 
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 760px) {
   .header-inner {
     grid-template-columns: 1fr;
@@ -1223,6 +1263,14 @@ ol {
 
   .gallery-thumb {
     height: 160px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .screens-grid {
+    grid-template-columns: 1fr;
   }
 
   .submenu {
