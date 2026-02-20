@@ -1352,14 +1352,14 @@ ol {
   grid-column: 1 / span 2;
   justify-self: end;
   max-width: 420px;
-  transform: translate(-4px, 6px) rotate(-0.35deg) scale(1);
+  transform: translate(0, 6px) rotate(-0.2deg);
 }
 
 .cook-screens .screen-item.is-post {
-  grid-column: 2 / span 2;
-  justify-self: center;
-  max-width: 440px;
-  transform: translate(0, 8px) rotate(0.25deg) scale(1);
+  grid-column: 3 / span 2;
+  justify-self: start;
+  max-width: 420px;
+  transform: translate(0, 6px) rotate(0.2deg);
 }
 
 .active-screens .screen-item.is-hero {
