@@ -150,20 +150,31 @@ if (backToTop) {
 }
 
 // Lightbox simple pour agrandir les images cliquables (hors photo de profil)
-const zoomableImages = document.querySelectorAll(".zoomable");
-if (zoomableImages.length) {
+const zoomableImages = Array.from(document.querySelectorAll(".zoomable"));
+const zoomableWithSrc = zoomableImages.filter((el) => {
+  const bg = window.getComputedStyle(el).backgroundImage;
+  return el.tagName === "IMG" || (bg && bg !== "none") || el.getAttribute("data-zoom-src");
+});
+
+if (zoomableWithSrc.length) {
   const lightbox = document.createElement("div");
   lightbox.className = "lightbox";
   lightbox.setAttribute("role", "dialog");
   lightbox.setAttribute("aria-modal", "true");
   lightbox.innerHTML = `
     <button class="lightbox__close" aria-label="Fermer l'image">×</button>
+    <button class="lightbox__nav lightbox__nav--prev" aria-label="Image précédente">‹</button>
+    <button class="lightbox__nav lightbox__nav--next" aria-label="Image suivante">›</button>
     <img class="lightbox__img" alt="" />
   `;
   document.body.appendChild(lightbox);
 
   const lightboxImg = lightbox.querySelector(".lightbox__img");
   const closeBtn = lightbox.querySelector(".lightbox__close");
+  const prevBtn = lightbox.querySelector(".lightbox__nav--prev");
+  const nextBtn = lightbox.querySelector(".lightbox__nav--next");
+  let currentIndex = 0;
+  let currentGroup = zoomableWithSrc;
 
   const getZoomSrc = (el) => {
     if (el.tagName === "IMG") return el.src;
@@ -179,9 +190,24 @@ if (zoomableImages.length) {
     if (!src) return;
     lightboxImg.src = src;
     lightboxImg.alt = el.getAttribute("aria-label") || el.alt || "";
+    const groupId = el.getAttribute("data-zoom-group");
+    currentGroup = groupId
+      ? zoomableWithSrc.filter((item) => item.getAttribute("data-zoom-group") === groupId)
+      : zoomableWithSrc;
+    currentIndex = currentGroup.indexOf(el);
     lightbox.classList.add("is-open");
     document.body.style.overflow = "hidden";
     closeBtn.focus();
+  };
+
+  const showAt = (index) => {
+    const total = currentGroup.length;
+    currentIndex = (index + total) % total;
+    const el = currentGroup[currentIndex];
+    const src = getZoomSrc(el);
+    if (!src) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = el.getAttribute("aria-label") || el.alt || "";
   };
 
   const closeLightbox = () => {
@@ -190,7 +216,7 @@ if (zoomableImages.length) {
     document.body.style.overflow = "";
   };
 
-  zoomableImages.forEach((el) => {
+  zoomableWithSrc.forEach((el) => {
     el.addEventListener("click", () => openLightbox(el));
   });
 
@@ -198,10 +224,18 @@ if (zoomableImages.length) {
     if (event.target === lightbox) closeLightbox();
   });
 
+  prevBtn.addEventListener("click", () => showAt(currentIndex - 1));
+  nextBtn.addEventListener("click", () => showAt(currentIndex + 1));
   closeBtn.addEventListener("click", closeLightbox);
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
       closeLightbox();
+    }
+    if (event.key === "ArrowLeft" && lightbox.classList.contains("is-open")) {
+      showAt(currentIndex - 1);
+    }
+    if (event.key === "ArrowRight" && lightbox.classList.contains("is-open")) {
+      showAt(currentIndex + 1);
     }
   });
 }
