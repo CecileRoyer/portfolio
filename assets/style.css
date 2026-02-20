@@ -775,6 +775,13 @@ ol {
   gap: 0.5rem;
 }
 
+.tag-list.centered {
+  justify-content: center;
+}
+
+.project-card .tag-list {
+  justify-content: flex-start;
+}
 .tag-list li {
   padding: 0.35rem 0.8rem;
   border-radius: 999px;
@@ -1162,20 +1169,31 @@ ol {
 }
 
 /* CookTogether: grands écrans un peu plus compacts */
+.cook-screens { gap: 0.85rem; }
 .cook-screens .screen-item--xl { grid-column: span 3; grid-row: span 1; }
-.cook-screens .screen-item--md { grid-column: span 3; grid-row: span 1; }
-.cook-screens .screen-item--sm { grid-column: span 2; grid-row: span 1; }
+.cook-screens .screen-item--md { grid-column: span 2; grid-row: span 1; }
+.cook-screens .screen-item--sm { grid-column: span 1; grid-row: span 1; }
 
 /* Mettre en avant les mockups */
 .screens-styled .screen-item.is-featured {
-  grid-column: span 4;
-  grid-row: span 2;
+  grid-column: span 2;
+  grid-row: span 1;
   z-index: 2;
+}
+
+.cook-screens .screen-item.is-hero {
+  grid-column: span 3;
+  grid-row: span 1;
 }
 
 /* Composition plus vivante */
 .cook-screens .screen-item.is-featured:nth-of-type(6) { transform: translateY(-8px); }
 .cook-screens .screen-item.is-featured:nth-of-type(7) { transform: translateY(6px); }
+.cook-screens .screen-item:nth-of-type(1) { transform: translateY(6px); }
+.cook-screens .screen-item:nth-of-type(2) { transform: translateY(-6px); }
+.cook-screens .screen-item:nth-of-type(3) { transform: translateY(4px); }
+.cook-screens .screen-item:nth-of-type(4) { transform: translateY(-4px); }
+.cook-screens .screen-item:nth-of-type(5) { transform: translateY(8px); }
 
 .active-screens .screen-item.is-featured:first-child { transform: translateY(-6px); }
 .active-screens .screen-item.is-featured:last-child { transform: translateY(8px); }
