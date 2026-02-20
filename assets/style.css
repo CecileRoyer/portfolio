@@ -76,6 +76,11 @@ h2 {
   font-size: clamp(1.7rem, 3vw, 2.3rem);
 }
 
+/* Offset anchors so fixed header doesn't overlap section titles */
+h2[id] {
+  scroll-margin-top: 110px;
+}
+
 h3 {
   font-size: 1.2rem;
 }
@@ -782,6 +787,10 @@ ol {
 .project-card .tag-list {
   justify-content: flex-start;
 }
+
+.tools .tag-list {
+  justify-content: flex-start;
+}
 .tag-list li {
   padding: 0.35rem 0.8rem;
   border-radius: 999px;
@@ -1170,18 +1179,23 @@ ol {
 
 /* CookTogether: grands écrans un peu plus compacts */
 .cook-screens { gap: 0.85rem; }
-.cook-screens .screen-item--xl { grid-column: span 2; grid-row: span 1; }
+.cook-screens .screen-item--xl { grid-column: span 1; grid-row: span 1; }
 .cook-screens .screen-item--md { grid-column: span 1; grid-row: span 1; }
 .cook-screens .screen-item--sm { grid-column: span 1; grid-row: span 1; }
 
 /* Mettre en avant les mockups */
 .screens-styled .screen-item.is-featured {
   grid-column: span 2;
-  grid-row: span 1;
+  grid-row: span 2;
   z-index: 2;
 }
 
 .cook-screens .screen-item.is-hero {
+  grid-column: span 5;
+  grid-row: span 3;
+}
+
+.active-screens .screen-item.is-hero {
   grid-column: span 4;
   grid-row: span 2;
 }
@@ -1245,6 +1259,7 @@ ol {
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-top: 1rem;
+  justify-content: center;
 }
 
 .pill {
