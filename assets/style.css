@@ -782,6 +782,15 @@ ol {
   border: 1px solid var(--border);
   color: var(--primary-strong);
   font-size: 0.85rem;
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.tag-list li:hover,
+.tag-list li:focus-visible {
+  background: rgba(68, 84, 106, 0.12);
+  border-color: rgba(68, 84, 106, 0.3);
+  color: var(--primary-strong);
+  transform: translateY(-1px);
 }
 
 .projects-grid {
@@ -1152,6 +1161,25 @@ ol {
   gap: 1.4rem;
 }
 
+/* CookTogether: grands écrans un peu plus compacts */
+.cook-screens .screen-item--xl { grid-column: span 3; grid-row: span 1; }
+.cook-screens .screen-item--md { grid-column: span 3; grid-row: span 1; }
+.cook-screens .screen-item--sm { grid-column: span 2; grid-row: span 1; }
+
+/* Mettre en avant les mockups */
+.screens-styled .screen-item.is-featured {
+  grid-column: span 4;
+  grid-row: span 2;
+  z-index: 2;
+}
+
+/* Composition plus vivante */
+.cook-screens .screen-item.is-featured:nth-of-type(6) { transform: translateY(-8px); }
+.cook-screens .screen-item.is-featured:nth-of-type(7) { transform: translateY(6px); }
+
+.active-screens .screen-item.is-featured:first-child { transform: translateY(-6px); }
+.active-screens .screen-item.is-featured:last-child { transform: translateY(8px); }
+
 .screens-styled .screen-item {
   border-radius: 20px;
   box-shadow: none;
@@ -1208,6 +1236,15 @@ ol {
   border: 1px solid var(--border);
   font-size: 0.85rem;
   color: var(--primary-strong);
+  transition: background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.pill:hover,
+.pill:focus-visible {
+  background: rgba(192, 122, 92, 0.18);
+  border-color: rgba(192, 122, 92, 0.45);
+  color: var(--primary-strong);
+  transform: translateY(-1px);
 }
 
 .case-grid {
