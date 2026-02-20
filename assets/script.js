@@ -148,3 +148,60 @@ if (backToTop) {
   window.addEventListener("scroll", toggleBackToTop, { passive: true });
   toggleBackToTop();
 }
+
+// Lightbox simple pour agrandir les images cliquables (hors photo de profil)
+const zoomableImages = document.querySelectorAll(".zoomable");
+if (zoomableImages.length) {
+  const lightbox = document.createElement("div");
+  lightbox.className = "lightbox";
+  lightbox.setAttribute("role", "dialog");
+  lightbox.setAttribute("aria-modal", "true");
+  lightbox.innerHTML = `
+    <button class="lightbox__close" aria-label="Fermer l'image">×</button>
+    <img class="lightbox__img" alt="" />
+  `;
+  document.body.appendChild(lightbox);
+
+  const lightboxImg = lightbox.querySelector(".lightbox__img");
+  const closeBtn = lightbox.querySelector(".lightbox__close");
+
+  const getZoomSrc = (el) => {
+    if (el.tagName === "IMG") return el.src;
+    const dataSrc = el.getAttribute("data-zoom-src");
+    if (dataSrc) return dataSrc;
+    const bg = window.getComputedStyle(el).backgroundImage;
+    const match = /url\([\"']?(.*?)[\"']?\)/.exec(bg);
+    return match ? match[1] : "";
+  };
+
+  const openLightbox = (el) => {
+    const src = getZoomSrc(el);
+    if (!src) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = el.getAttribute("aria-label") || el.alt || "";
+    lightbox.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+    closeBtn.focus();
+  };
+
+  const closeLightbox = () => {
+    lightbox.classList.remove("is-open");
+    lightboxImg.src = "";
+    document.body.style.overflow = "";
+  };
+
+  zoomableImages.forEach((el) => {
+    el.addEventListener("click", () => openLightbox(el));
+  });
+
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+
+  closeBtn.addEventListener("click", closeLightbox);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+      closeLightbox();
+    }
+  });
+}
