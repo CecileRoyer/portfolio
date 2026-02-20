@@ -731,6 +731,20 @@ ol {
   overflow: hidden;
 }
 
+.cta-wrap {
+  background: var(--bg);
+}
+
+.cta-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: var(--shadow-soft);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 
 .section::before {
   content: "";
