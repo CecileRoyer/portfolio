@@ -746,9 +746,13 @@ ol {
 .hero-card {
   background: var(--surface);
   border-radius: var(--radius-lg);
-  padding: 2rem;
+  padding: 2.4rem;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
+}
+
+.hero-card h2 {
+  margin-top: 0;
 }
 
 .avatar {
@@ -1254,9 +1258,13 @@ ol {
   background: none;
 }
 
-/* Abaisse légèrement le cadrage pour certains visuels (logo/pub) */
-.gallery-thumb.gallery-shift-down {
-  object-position: center 80%;
+/* Centrage précis pour logo et publicité */
+.gallery-thumb.gallery-logo-focus {
+  object-position: center 45%;
+}
+
+.gallery-thumb.gallery-pub-focus {
+  object-position: center 55%;
 }
 
 .gallery-thumb::after {
@@ -1735,6 +1743,7 @@ ol {
   height: 100%;
   display: flex;
   flex-direction: column;
+  gap: 1.2rem;
 }
 
 .contact-actions {
@@ -1765,7 +1774,7 @@ ol {
 
 .contact-list {
   display: grid;
-  gap: 0.75rem;
+  gap: 1.2rem;
   color: var(--text);
   font-size: 1.02rem;
 }
