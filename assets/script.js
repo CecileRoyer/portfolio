@@ -112,8 +112,10 @@ if (menuToggle && mainNav) {
   });
 
   mainNav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
+    link.addEventListener("click", (event) => {
       if (!isMobileMenu()) return;
+      // Ne pas fermer si on clique sur le déclencheur d'un sous-menu
+      if (event.target.closest(".has-submenu")) return;
       mainNav.classList.remove("is-open");
       menuToggle.setAttribute("aria-expanded", "false");
     });
