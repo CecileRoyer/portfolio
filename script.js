@@ -1,4 +1,4 @@
-﻿// Scroll reveal avec effet doux (fade + translateY) + option de stagger
+// Scroll reveal avec effet doux (fade + translateY) + option de stagger
 const revealItems = document.querySelectorAll(".reveal");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 

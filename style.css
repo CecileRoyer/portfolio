@@ -1,4 +1,4 @@
-﻿/* =============================
+/* =============================
    Design Tokens
 ============================= */
 :root {
@@ -44,6 +44,34 @@ body {
   min-height: 100%;
   overflow-x: hidden;
   padding-top: 84px;
+}
+
+/* Fond dynamique : lignes fluides discrètes */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::before {
+  background: none;
+}
+
+body::after {
+  background-image:
+    linear-gradient(115deg, rgba(68, 84, 106, 0.06) 10%, transparent 30%),
+    linear-gradient(220deg, rgba(192, 122, 92, 0.06) 10%, transparent 30%),
+    linear-gradient(300deg, rgba(111, 138, 151, 0.05) 10%, transparent 35%);
+  opacity: 0.6;
+}
+
+/* Assure que le contenu reste au-dessus du fond */
+body > * {
+  position: relative;
+  z-index: 1;
 }
 
 img {
