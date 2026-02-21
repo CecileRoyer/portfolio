@@ -1260,11 +1260,11 @@ ol {
 
 /* Centrage précis pour logo et publicité */
 .gallery-thumb.gallery-logo-focus {
-  object-position: center 45%;
+  object-position: center 35%;
 }
 
 .gallery-thumb.gallery-pub-focus {
-  object-position: center 55%;
+  object-position: center 50%;
 }
 
 .gallery-thumb::after {
