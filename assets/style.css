@@ -76,7 +76,7 @@ h1,
 h2,
 h3 {
   font-family: var(--font-serif);
-  margin: 0 0 0.75rem;
+  margin: 0 0 1.1rem;
   line-height: 1.15;
 }
 
@@ -174,6 +174,7 @@ ol {
 ============================= */
 .site-header {
   position: sticky;
+  position: -webkit-sticky;
   top: 0;
   z-index: 20;
   background: rgba(240, 234, 220, 0.92);
@@ -712,6 +713,11 @@ ol {
   margin: 1.2rem 0 1.6rem;
 }
 
+/* Centre les CTA du hero par rapport au texte */
+.hero-text .cta-group {
+  justify-content: center;
+}
+
 .meta {
   display: grid;
   gap: 0.5rem;
@@ -846,6 +852,13 @@ ol {
   text-align: center;
 }
 
+/* Centre parfaitement le titre avec pictogramme dans le CTA alternance */
+.cta-panel .section-title {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 /* Cohérence des espacements de section */
 .section .container > h2 {
   margin-bottom: 0.6rem;
@@ -867,6 +880,11 @@ ol {
 
 .section .cta-group {
   margin-top: 1rem;
+}
+
+/* Centre les CTA dans le bloc alternance (toutes pages) */
+.cta-panel .cta-group {
+  justify-content: center;
 }
 
 
@@ -1228,6 +1246,11 @@ ol {
   object-fit: cover;
   object-position: center;
   background: none;
+}
+
+/* Abaisse légèrement le cadrage pour certains visuels (logo/pub) */
+.gallery-thumb.gallery-shift-down {
+  object-position: center 70%;
 }
 
 .gallery-thumb::after {
@@ -1693,7 +1716,7 @@ ol {
 ============================= */
 .contact-grid {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  align-items: center;
+  align-items: stretch;
   gap: 2.5rem;
 }
 
@@ -1720,6 +1743,9 @@ ol {
   border: 1px solid var(--border);
   box-shadow: var(--shadow-soft);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-card:hover,
@@ -1778,6 +1804,13 @@ ol {
 .form-grid {
   display: grid;
   gap: 1rem;
+}
+
+/* Bouton du formulaire plus compact */
+.form-card .btn {
+  align-self: flex-end;
+  justify-self: end;
+  width: auto;
 }
 
 .form-field {
