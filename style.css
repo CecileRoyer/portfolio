@@ -1264,7 +1264,7 @@ ol {
 }
 
 .gallery-thumb.gallery-pub-focus {
-  object-position: center 75%;
+  object-position: center 30%;
 }
 
 .gallery-thumb::after {
