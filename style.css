@@ -2401,6 +2401,14 @@ ol {
     width: 100%;
   }
 
+  /* Centre le bloc "icône + titre" */
+  .section-title {
+    justify-content: center;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   /* Centre tout le contenu en mobile (hors champs de formulaire) */
   .section,
   .section .container,
