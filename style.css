@@ -927,10 +927,41 @@ ol {
 
 /* Harmonise l'alignement en mobile quand les sections passent en 1 colonne */
 @media (max-width: 760px) {
+  .about-portrait {
+    justify-self: center;
+    margin: 0 auto;
+  }
+
+  /* Titre Ambroise Tournesol : légèrement réduit pour garder des marges */
+  #ambroise-title {
+    font-size: clamp(1.6rem, 5.5vw, 2.1rem);
+  }
+
+  /* Encadrés études de cas : tout centrer en mobile */
+  .case-card,
+  .case-card h3,
+  .case-card p,
+  .case-card .list {
+    text-align: center;
+  }
+
+  .case-card .list {
+    justify-items: center;
+  }
+
   h1,
   h2,
   h3 {
     white-space: nowrap;
+  }
+
+  /* Autoriser le retour à la ligne pour certains titres trop longs */
+  #search-title,
+  #gallery-title,
+  .hero-card h2 {
+    white-space: normal;
+    text-wrap: balance;
+    overflow-wrap: anywhere;
   }
 
   h1 {
@@ -2175,10 +2206,13 @@ ol {
     width: 42px;
     height: 42px;
     font-size: 1rem;
+    grid-column: 1;
   }
 
   .menu-toggle {
     display: inline-flex;
+    justify-self: end;
+    grid-column: 3;
   }
 
   .nav-list {
@@ -2198,13 +2232,15 @@ ol {
 
   .main-nav.is-open .nav-list {
     display: flex;
-    max-height: 320px;
+    max-height: 600px;
     opacity: 1;
     transform: translateY(0);
   }
 
   .main-nav {
     width: 100%;
+    grid-column: 1 / -1;
+    grid-row: 2;
   }
 
   .design-ui-row {
@@ -2320,7 +2356,8 @@ ol {
     min-width: auto;
     box-shadow: none;
     border: 0;
-    padding: 0.4rem 0 0.6rem 0.8rem;
+    padding: 0;
+    margin: 0;
     opacity: 0;
     visibility: hidden;
     display: grid;
@@ -2335,6 +2372,7 @@ ol {
     visibility: visible;
     max-height: 300px;
     transform: translateY(0);
+    padding: 0.4rem 0 0.6rem 0.8rem;
   }
 }
 
