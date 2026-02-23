@@ -2425,12 +2425,12 @@ ol {
 
   #search-title,
   #gallery-title {
-    margin-bottom: 0.9rem;
+    margin-bottom: 1.8rem;
   }
 
   #search-title + p,
   #gallery-title + .section-lead {
-    margin-top: 0.6rem;
+    margin-top: 0.8rem;
   }
 
 
