@@ -961,7 +961,9 @@ ol {
   .hero-card h2 {
     white-space: normal;
     text-wrap: balance;
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
   }
 
   h1 {
