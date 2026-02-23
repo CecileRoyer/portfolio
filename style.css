@@ -952,7 +952,11 @@ ol {
   h1,
   h2,
   h3 {
-    white-space: nowrap;
+    white-space: normal;
+    text-wrap: balance;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
   }
 
   /* Autoriser le retour à la ligne pour certains titres trop longs */
@@ -2218,10 +2222,10 @@ ol {
   }
 
   .nav-list {
-    justify-content: flex-start;
+    justify-content: center;
     display: none;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 0.6rem;
     width: 100%;
     padding-top: 0.5rem;
@@ -2374,7 +2378,55 @@ ol {
     visibility: visible;
     max-height: 300px;
     transform: translateY(0);
-    padding: 0.4rem 0 0.6rem 0.8rem;
+    padding: 0.4rem 0 0.6rem;
+  }
+
+  .nav-list a {
+    justify-content: center;
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .has-submenu > a::after {
+    position: static;
+    transform: none;
+    margin-left: 0.35rem;
+  }
+
+  .submenu a {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Centre tout le contenu en mobile (hors champs de formulaire) */
+  .section,
+  .section .container,
+  .section .container > * {
+    text-align: center;
+  }
+
+  .section .list,
+  .list {
+    justify-items: center;
+  }
+
+  .project-card .text-link,
+  .project-card .btn.card-cta,
+  .contact-actions,
+  .cta-group,
+  .tag-list {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .project-card .text-link {
+    align-self: center;
+  }
+
+  /* Garder la saisie lisible dans les champs */
+  .input,
+  textarea {
+    text-align: left;
   }
 }
 
