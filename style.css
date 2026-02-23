@@ -2413,6 +2413,15 @@ ol {
     row-gap: 0.2rem;
   }
 
+  /* CTA alternance : éviter le débordement du titre */
+  .cta-panel .section-title {
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    text-wrap: balance;
+    flex-wrap: wrap;
+  }
+
   .section-title .title-break {
     flex-basis: 100%;
   }
