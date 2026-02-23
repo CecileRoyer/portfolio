@@ -2404,9 +2404,15 @@ ol {
   /* Centre le bloc "icône + titre" */
   .section-title {
     justify-content: center;
-    width: max-content;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
+    flex-wrap: wrap;
+    row-gap: 0.2rem;
+  }
+
+  .section-title .title-break {
+    flex-basis: 100%;
   }
 
   /* Centre tout le contenu en mobile (hors champs de formulaire) */
