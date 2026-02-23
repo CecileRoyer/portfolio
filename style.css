@@ -1018,6 +1018,41 @@ ol {
   min-height: 160px;
 }
 
+/* Icônes dans les encadrés À propos */
+.fact-card h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.fact-icon {
+  width: 20px;
+  height: 20px;
+  background: var(--secondary);
+  flex: 0 0 auto;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+}
+
+.fact-icon-listen {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M4 5h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-5 4v-4H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M4 5h16a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H9l-5 4v-4H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z'/%3E%3C/svg%3E");
+}
+
+.fact-icon-structure {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M4 19h16v2H4v-2zm2-8h3v6H6v-6zm5-4h3v10h-3V7zm5 2h3v8h-3V9z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M4 19h16v2H4v-2zm2-8h3v6H6v-6zm5-4h3v10h-3V7zm5 2h3v8h-3V9z'/%3E%3C/svg%3E");
+}
+
+.fact-icon-visual {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M12 5c-7 0-11 7-11 7s4 7 11 7 11-7 11-7-4-7-11-7zm0 12a5 5 0 1 1 0-10 5 5 0 0 1 0 10z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='black' d='M12 5c-7 0-11 7-11 7s4 7 11 7 11-7 11-7-4-7-11-7zm0 12a5 5 0 1 1 0-10 5 5 0 0 1 0 10z'/%3E%3C/svg%3E");
+}
+
 .process {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -2270,8 +2305,8 @@ ol {
 
 /* Pictos discrets pour certaines sections */
 .section-title.icon::before {
-  width: 14px;
-  height: 14px;
+  width: 18px;
+  height: 18px;
   border-radius: 0;
   box-shadow: none;
   background: var(--secondary);
