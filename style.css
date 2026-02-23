@@ -821,7 +821,7 @@ ol {
 }
 
 .surface {
-  background: var(--surface);
+  background-color: var(--surface);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   overflow: hidden;
@@ -831,6 +831,84 @@ ol {
   position: relative;
   overflow: hidden;
   text-align: left;
+}
+
+/* Backgrounds dynamiques par section */
+.section,
+.hero,
+.page-hero,
+.site-footer {
+  --section-bg: var(--surface);
+  --section-grad-1: rgba(68, 84, 106, 0.08);
+  --section-grad-2: rgba(192, 122, 92, 0.08);
+  --section-grad-3: rgba(111, 138, 151, 0.06);
+  background-color: var(--section-bg);
+  background-image:
+    radial-gradient(120% 80% at 10% -10%, var(--section-grad-1), transparent 60%),
+    radial-gradient(120% 80% at 110% 10%, var(--section-grad-2), transparent 60%),
+    linear-gradient(120deg, rgba(255, 255, 255, 0), var(--section-grad-3), rgba(255, 255, 255, 0));
+  background-size: 180% 180%;
+  background-position: 0% 50%, 100% 50%, 50% 50%;
+  animation: sectionGradient 26s ease-in-out infinite;
+}
+
+.section.surface {
+  --section-bg: var(--surface-soft);
+}
+
+.hero {
+  --section-bg: var(--bg);
+  --section-grad-1: rgba(68, 84, 106, 0.12);
+  --section-grad-2: rgba(192, 122, 92, 0.12);
+  --section-grad-3: rgba(111, 138, 151, 0.08);
+}
+
+.page-hero {
+  --section-bg: var(--bg);
+  --section-grad-1: rgba(68, 84, 106, 0.09);
+  --section-grad-2: rgba(192, 122, 92, 0.1);
+  --section-grad-3: rgba(111, 138, 151, 0.07);
+}
+
+#projets {
+  --section-grad-1: rgba(68, 84, 106, 0.09);
+  --section-grad-2: rgba(111, 138, 151, 0.08);
+  --section-grad-3: rgba(192, 122, 92, 0.06);
+}
+
+#a-propos {
+  --section-grad-1: rgba(192, 122, 92, 0.1);
+  --section-grad-2: rgba(68, 84, 106, 0.07);
+  --section-grad-3: rgba(111, 138, 151, 0.06);
+}
+
+#contact,
+.site-footer {
+  --section-bg: var(--surface-soft);
+  --section-grad-1: rgba(68, 84, 106, 0.1);
+  --section-grad-2: rgba(192, 122, 92, 0.08);
+  --section-grad-3: rgba(111, 138, 151, 0.07);
+}
+
+@keyframes sectionGradient {
+  0% {
+    background-position: 0% 50%, 100% 50%, 50% 50%;
+  }
+  50% {
+    background-position: 100% 50%, 0% 50%, 50% 100%;
+  }
+  100% {
+    background-position: 0% 50%, 100% 50%, 50% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section,
+  .hero,
+  .page-hero,
+  .site-footer {
+    animation: none;
+  }
 }
 
 /* Cohérence des alignements (hors hero/page-hero) */
