@@ -2415,6 +2415,18 @@ ol {
     flex-basis: 100%;
   }
 
+  #search-title .title-main,
+  #gallery-title .title-main {
+    display: inline-flex;
+    white-space: nowrap;
+  }
+
+  #search-title,
+  #gallery-title {
+    margin-bottom: 1.6rem;
+  }
+
+
   /* Centre tout le contenu en mobile (hors champs de formulaire) */
   .section,
   .section .container,
