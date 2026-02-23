@@ -952,14 +952,10 @@ ol {
   h1,
   h2,
   h3 {
-    white-space: normal;
-    text-wrap: balance;
-    overflow-wrap: break-word;
-    word-break: normal;
-    hyphens: auto;
+    white-space: nowrap;
   }
 
-  /* Autoriser le retour à la ligne pour certains titres trop longs */
+  /* Forcer des sauts de ligne maîtrisés sur certains titres */
   #search-title,
   #gallery-title,
   .hero-card h2 {
@@ -968,6 +964,11 @@ ol {
     overflow-wrap: break-word;
     word-break: normal;
     hyphens: auto;
+  }
+
+  #search-title .title-break,
+  #gallery-title .title-break {
+    display: block;
   }
 
   h1 {
@@ -1138,6 +1139,8 @@ ol {
   display: flex;
   align-items: center;
   gap: 0.6rem;
+  justify-content: center;
+  text-align: center;
 }
 
 .fact-icon {
@@ -1214,7 +1217,7 @@ ol {
 }
 
 .tools .tag-list {
-  justify-content: flex-start;
+  justify-content: center;
 }
 .tag-list li {
   padding: 0.35rem 0.8rem;
